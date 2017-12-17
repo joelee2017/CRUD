@@ -16,5 +16,19 @@ namespace CRUD
         {
             InitializeComponent();
         }
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            NorthwindEntities dc = new NorthwindEntities();
+            dataGridView1.DataSource = dc.Employees.Select(emp => new
+            {
+                編號 = emp.EmployeeID,
+                姓 = emp.FirstName,
+                名 = emp.LastName,
+
+            }).ToArray();
+
+
+        }
     }
 }
