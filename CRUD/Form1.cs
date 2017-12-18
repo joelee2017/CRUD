@@ -55,6 +55,7 @@ namespace CRUD
 
         /// <summary>
         /// dc.SaveChanges();儲存至DB
+        /// btnQuery_Click(sender, e);查詢事件呼叫
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -105,6 +106,7 @@ namespace CRUD
         /// dc.Employees.Find(Convert.ToInt32(txtEmployeeID.Text));
         /// (Find)查詢(Convert.ToInt32)轉型的txtEmployeeID.Text)值
         /// dc.Employees.Remove刪除DB資料來源(empDeleted);
+        /// btnQuery_Click(sender, e); 查詢事件呼叫
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
