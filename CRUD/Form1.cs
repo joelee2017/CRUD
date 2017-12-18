@@ -72,18 +72,24 @@ namespace CRUD
 
         private void btnDelete_Click(object sender, EventArgs e)//刪除事件
         {
-            NorthwindEntities dc = new NorthwindEntities();
-            Employees empDeleted = dc.Employees.Find(Convert.ToInt32(txtEmployeeID.Text));
-            if(empDeleted==null)
+            
+
+            if(MessageBox.Show("確定刪除嗎?", "刪除確認", MessageBoxButtons.YesNo,MessageBoxIcon.Question)
+                                ==DialogResult.Yes)
             {
-                MessageBox.Show($"無  {txtEmployeeID.Text}  員工記錄");
-            }
-            else
-            {
-                dc.Employees.Remove(empDeleted);
-                dc.SaveChanges();
-                MessageBox.Show("刪除成功");
-                btnQuery_Click(sender, e);
+                NorthwindEntities dc = new NorthwindEntities();
+                Employees empDeleted = dc.Employees.Find(Convert.ToInt32(txtEmployeeID.Text));
+                if (empDeleted == null)
+                {
+                    MessageBox.Show($"無  {txtEmployeeID.Text}  員工記錄");
+                }
+                else
+                {
+                    dc.Employees.Remove(empDeleted);
+                    dc.SaveChanges();
+                    MessageBox.Show("刪除成功");
+                    btnQuery_Click(sender, e);
+                }
             }
         }
     }
