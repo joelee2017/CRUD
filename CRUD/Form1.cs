@@ -73,9 +73,14 @@ namespace CRUD
 
         }
 
+        /// <summary>
+        /// dc.Entry(empUpdate).State = System.Data.Entity.EntityState.Modified(修改過後的狀態);
+        /// 取得修改過後的實體狀態
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpate_Click(object sender, EventArgs e)//更新事件
         {
-
             Employees empUpdate = dc.Employees.Find(int.Parse(txtUpdateID.Text));//員工編號需轉int
             empUpdate.FirstName = txtUpdateFirstName.Text;
             empUpdate.LastName = txtUpdateLastName.Text;
